@@ -33,15 +33,9 @@ this time i've commented the code sirs */
 #include <stdlib.h>
 //define size of map
 #define AZ 25
-#define AX AZ*2 //make a nice square
-/* insane attempts at optimal ,,available space'' calculations
- * this is entirely trial and error, think of it as rolling dice
- * avert your eyes, beginners
-// #define DC (AZ*AX)/2 //this makes too boring art
-// #define DC (AZ*AX+0xC32>>1)/2  //this segfaults a lot
-// #define DC ((AZ+0xC32)*AX)/0xc  //this either makes too boring or too chaotic art
-*/
-#define DC ((AZ+0xC5)*AX)/(AZ/2+AX/AZ) //it is perfect. it does not segfault. it generates the best art so far, almost as if there was artificial intelligence behind the random calculations. i love it.
+#define AX AZ*2
+
+#define DC ((AZ+0xC5)*AX)/(AZ/2+AX/AZ) //optimal available space
 int main(){
  char aggr[]={'/','_','\\','^','-','`','+','.',')','(','~'},
       art[AX][AZ]; //map of art
